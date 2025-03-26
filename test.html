@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OPJS Test Page</title>
+
+  <script src="./loader.js"></script>
+
+  <script>
+    // Use the loader to load modules (including dependencies)
+    OPJS.Loader.loadModules(['tooltip'], function() {
+      // Now that all modules are loaded, you can use the initializeTooltips function
+      const tooltipDict = {
+        'el1': 'This is a tooltip for some element',
+        'el2': 'This is a tooltip for another element'
+      };
+
+      // Initialize the tooltips with custom settings
+      window.OPJS.Tooltip.initializeTooltips(tooltipDict, {
+        delayMs: 200,
+        debounceMs: 250,
+        positionBreakpoint: 900
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <h1>OPJS Test Page</h1>
+  <p>This is a test page for the OPJS module.</p>
+
+  <!-- Tooltip Example -->
+  <div name="This is a tooltip.">
+    Hover over the fields below to see a tooltip.
+  </div>
+  <br>
+
+  <!-- Sample elements to apply tooltips to -->
+  <div>
+    <input type="text" name="el1" />
+  </div>
+  <br>
+  <div>
+    <input type="text" name="el2" />
+  </div>
+
+</body>
+</html>
